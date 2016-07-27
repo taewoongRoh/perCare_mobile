@@ -1,0 +1,27 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.petcare"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.petcare"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.petcare"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.petcare"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.petcare"
+        }
+    },
+    "dependent_plugins": {}
+}
