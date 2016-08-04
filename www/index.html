@@ -24,6 +24,17 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
     <script type="text/javascript" src="lib/jquery.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/disease.js"></script>
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
     <script>
     $(function() {
         $("#seach_animal").click(function() {
@@ -271,7 +282,7 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
                             <button data-icon="flat-heart" data-theme="g">경련</button>
                         </div>
                         <div class="ui-block-b">
-                            <button data-icon="flat-menu" data-theme="f">탈모</button>
+                            <button data-icon="flat-menu" data-theme="f" onclick="hospital()">탈모</button>
                         </div>
                     </fieldset>
 
@@ -280,6 +291,112 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
             </div>
         </div>
     </div>
+<!--test -->
+<div data-role="page" id="test">
+  <div data-role="header">
+    <h1>Welcome To My Homepage</h1>
+  </div>
+
+  <button onclick="test('식욕감소')">식욕감소</button>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+
+
+
+      <!--      disease detail  4page                        -->
+   <div data-role="page" id="disease">
+  <div data-role="header">
+  <h1>Welcome To My Homepage</h1>
+  </div>
+
+  <div data-role="content" class="ui-content">
+
+<div class="card">
+  <div class="card-header">
+    질병정의 
+  </div>
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+    </blockquote>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    주요증상 
+  </div>
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+      <p id="symptom"></p>
+      <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+    </blockquote>
+  </div>
+</div>
+
+
+
+<div class="card">
+  <div class="card-header">
+    치료 
+  </div>
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+      <p id="cure"></p>
+      <footer>Someone famous in <cite title="Source Title">Source Title 
+      </cite>
+      </footer>
+      <button class="btn btn-default" onclick="hospital()">병원</button>
+    </blockquote>
+  </div>
+</div>
+
+
+
+
+  </div>
+
+  <div data-role="footer">
+  <h1>Footer Text</h1>
+  </div>
+     </div>
+
+     <!-- map page  -->
+
+     <div data-role="page" id="maps">
+  <div data-role="header">
+    <h1>Map test</h1>
+  </div>
+
+  <div data-role="content" class="ui-content">
+    
+<div id="map" style="width:100%;height:400px; border:1px solid red;"></div>
+<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=#"></script>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new daum.maps.LatLng(33.450701, 126.570667),
+            level: 3
+        };
+
+        var map = new daum.maps.Map(container, options);
+    </script>
+  </div>
+
+  <div data-role="footer">
+    <h1>Insert Footer Text Here</h1>
+  </div>
+
+ 
+
+</div>
+
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/fastclick/js/fastclick.js"></script>
     <script type="text/javascript" src="lib/handlebars/js/handlebars-v1.3.0.js"></script>
