@@ -1,3 +1,10 @@
+function hospital(){
+	location.href = "#maps";
+	alert(1)
+}
+
+
+
 function test(disease){
 	console.log(disease)
 
@@ -26,5 +33,10 @@ function successing(data){
 
 console.log(data.d_id+" "+data.d_name+" "+data.d_symptom+" "+data.d_prevent+" "+data.d_cure+" "+data.h_effect)
 	//$("").innerHTML()
+	$("#symptom").append(data.d_symptom)
+    $("#cure").append(data.d_cure)
+
+
+    location.href = "#disease";
 
 }
