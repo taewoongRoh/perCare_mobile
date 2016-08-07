@@ -216,6 +216,7 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
     </div>
 </div>
 </div>
+<<<<<<< HEAD
     <!--test -->
     <div data-role="page" id="test">
         <div data-role="header">
@@ -290,6 +291,134 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
             </div>-->
         </div>
     </div>
+=======
+
+
+
+<div class="card">
+  <div class="card-header">
+    치료 
+  </div>
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+      <p id="cure"></p>
+      <footer>Someone famous in <cite title="Source Title">Source Title 
+      </cite>
+      </footer>
+      <button class="btn btn-default" onclick="hospital()">병원</button>
+    </blockquote>
+  </div>
+</div>
+
+
+
+
+  </div>
+
+  <div data-role="footer">
+  <h1>Footer Text</h1>
+  </div>
+     </div>
+
+     <!-- map page  -->
+
+     <div data-role="page" id="maps">
+  <div data-role="header">
+    <h1>Map test</h1>
+  </div>
+
+  <div data-role="content" class="ui-content">
+    
+<div id="map" style="width:100%;height:400px; border:1px solid red;"></div>
+<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=56e22763bb7e0f2605f0174d2c64ec75"></script>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new daum.maps.LatLng(33.450701, 126.570667),
+            level: 3
+        };
+
+        var map = new daum.maps.Map(container, options);
+    </script>
+  </div>
+
+  <div data-role="footer">
+    <h1>Insert Footer Text Here</h1>
+  </div>
+
+ 
+
+</div>
+
+ <!-- test page  -->
+
+     <div data-role="page" id="fund">
+  <div class="container">
+
+    <h2>내비게이션바</h2>
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Brand</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-collapse collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+</div>
+
+ 
+
+   </div>
+
+
+>>>>>>> a4d0126d1a850637b1e1a5330d5e6aacb5a51018
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/fastclick/js/fastclick.js"></script>
     <script type="text/javascript" src="lib/handlebars/js/handlebars-v1.3.0.js"></script>

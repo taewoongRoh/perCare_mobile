@@ -151,6 +151,7 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
         </div>
     </div>
     <!--PAGE2-->
+
     <div data-role="page" id="select_symptom" class="page"><div data-role="header">
     <a data-iconpos="notext" data-role="button" data-icon="home" title="Home" href="#home">Home</a>
     <h1>펫케어</h1>
@@ -188,6 +189,50 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
                  <label for="checkbox-9">식욕감소</label>
             </fieldset>
             </div>
+
+    <div data-role="page" id="select_symptom" class="page">
+        <div data-role="header">
+            <a data-iconpos="notext" data-role="button" data-icon="home" title="Home" href="#home">Home</a>
+            <h1>펫케어</h1>
+            <a data-iconpos="notext" data-role="button" data-icon="flat-menu" class="menubar">Menu</a>
+        </div>
+        <div data-role="content" class="content">
+            <div class="main_content">
+                <div class="symptom_list">
+                    <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <button data-icon="flat-settings" data-theme="a">고열</button>
+                            </div>
+                        <div class="ui-block-b">
+                            <button data-icon="flat-new" data-theme="b" >구토</button>
+                        </div>
+                    </fieldset>
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <button data-icon="flat-man" data-theme="c">탈수</button>
+                        </div>
+                        <div class="ui-block-b">
+                            <button data-icon="flat-mail" data-theme="d">체중감소</button>
+                        </div>
+                    </fieldset>
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <button data-icon="flat-lock" data-theme="e">설사</button>
+                        </div>
+                        <div class="ui-block-b">
+                            <button data-icon="flat-menu" data-theme="f">기침</button>
+                        </div>
+                    </fieldset>
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <button data-icon="flat-heart" data-theme="g">경련</button>
+                        </div>
+                        <div class="ui-block-b">
+                            <button data-icon="flat-menu" data-theme="f" onclick="hospital()">탈모</button>
+                        </div>
+                    </fieldset>
+
+
                     
             </div>
             <!--
@@ -216,6 +261,7 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
     </div>
 </div>
 </div>
+
     <!--test -->
     <div data-role="page" id="test">
         <div data-role="header">
@@ -290,6 +336,71 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
             </div>-->
         </div>
     </div>
+
+
+
+
+<div class="card">
+  <div class="card-header">
+    치료 
+  </div>
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+      <p id="cure"></p>
+      <footer>Someone famous in <cite title="Source Title">Source Title 
+      </cite>
+      </footer>
+      <button class="btn btn-default" onclick="hospital()">병원</button>
+    </blockquote>
+  </div>
+</div>
+
+
+
+
+  </div>
+
+  <div data-role="footer">
+  <h1>Footer Text</h1>
+  </div>
+     </div>
+
+     <!-- map page  -->
+
+     <div data-role="page" id="maps">
+  <div data-role="header">
+    <h1>Map test</h1>
+  </div>
+
+  <div data-role="content" class="ui-content">
+    
+<div id="map" style="width:100%;height:400px; border:1px solid red;"></div>
+<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=56e22763bb7e0f2605f0174d2c64ec75"></script>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new daum.maps.LatLng(33.450701, 126.570667),
+            level: 3
+        };
+
+        var map = new daum.maps.Map(container, options);
+    </script>
+  </div>
+
+  <div data-role="footer">
+    <h1>Insert Footer Text Here</h1>
+  </div>
+
+ 
+
+</div>
+
+ <!-- test page  -->
+
+    
+
+
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/fastclick/js/fastclick.js"></script>
     <script type="text/javascript" src="lib/handlebars/js/handlebars-v1.3.0.js"></script>
