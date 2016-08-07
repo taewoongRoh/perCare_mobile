@@ -15,32 +15,47 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <title>PetCare</title>
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />-->
+    <link rel="stylesheet" href="css/index.css">
     <script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
-    <script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
     <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/disease.js"></script>
-        <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- 다음지도 api -->
+    <script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=#"></script>
     <script>
-    $(function() {
-        $("#seach_animal").click(function() {
-            location.href = "#second";
-        })
+    $(document).on("pageshow", "#maps", function() {
 
+
+        var container = document.getElementById('map');
+        var options = {
+            center: new daum.maps.LatLng(33.450701, 126.570667),
+            level: 3
+        };
+
+        var map = new daum.maps.Map(container, options);
+
+        map.relayout();
+    });
+
+
+    $(document).on("pageshow", "#select_animal", function(event) {
+        alert("pageshow event fired - select_animal page is now shown");
+    });
+
+
+
+    $(function() {
 
         $(".menubar").click(function() {
             if ($("#right-panel").hasClass('menu-open')) {
@@ -66,107 +81,6 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
         });
     });
     </script>
-    <style>
-    html {
-        min-height: 100% !important;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        /*이걸 뺴면 웹에서 스크롤바가 2개뜸 */
-    }
-    
-    body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-    }
-    
-    #right-panel {
-        position: absolute;
-        top: 0;
-        right: -80%;
-        float: right;
-        max-width: 400px;
-        height: 100%;
-        background: #fff;
-        overflow-y: auto;
-        z-index: 100;
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-    }
-    
-    .menu-open {
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        right: 0 !important;
-    }
-    
-    .background-active {
-        background: rgba(0, 0, 0, 0.1);
-    }
-    
-    .unclickable {
-        pointer-events: none !important;
-    }
-    
-    .main_content {
-        pointer-events: auto;
-    }
-
-    .circle-text-a {
-    	color:white !important;
-    }
-    
-    .circle-text-home {
-        width: 50% !important;
-        margin-left: 0 !important;
-    }
-    
-    .circle-text {
-        width: 30%;
-        display: inline-block;
-    }
-    
-    .circle-text:after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 0;
-        padding-bottom: 100%;
-        background: #4679BD;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-    }
-    
-    .circle-text div {
-        float: left;
-        width: 100%;
-        padding-top: 50%;
-        line-height: 1em;
-        margin-top: -0.5em;
-        text-align: center;
-        color: white;
-    }
-    
-    .page {
-        height: 100%;
-    }
-    
-    .content {
-        height: 80%;
-    }
-    
-    .main_content {
-        height: 100%;
-    }
-    
-    .animal_list {
-        height: 100%;
-    }
-    </style>
 </head>
 
 <body>
@@ -192,7 +106,7 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
                     <div><a href="#select_animal" class="circle-text-a">증상으로 질병 찾기 </a></div>
                 </div>
                 <div class="ui-content">
-                    <a href="#" class="ui-btn">근처 동물병원 찾기</a>
+                    <a href="#maps" class="ui-btn" id="search_map">근처 동물병원 찾기</a>
                 </div>
                 <div class="ui-content">
                     <a href="#" class="ui-btn">사료 검색</a>
@@ -206,14 +120,13 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
             <a data-iconpos="notext" data-role="button" data-icon="home" title="Home" href="#home">Home</a>
             <h1>펫케어</h1>
         </div>
-        <div data-role="content" class="content">
+        <div data-role="content" class="ui-content">
             <div class="main_content" style="text-align:center;">
                 <div class="animal_list">
                     <div class="circle-text">
                         <div><a href="#select_symptom" class="circle-text-a">강아지 </a></div>
                     </div>
-
-                     &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;
                     <div class="circle-text">
                         <div><a href="#select_symptom" class="circle-text-a">고양이 </a></div>
                     </div>
@@ -238,6 +151,7 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
         </div>
     </div>
     <!--PAGE2-->
+<<<<<<< HEAD
     <div data-role="page" id="select_symptom" class="page">
         <div data-role="header">
             <a data-iconpos="notext" data-role="button" data-icon="home" title="Home" href="#home">Home</a>
@@ -280,58 +194,149 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
                         </div>
                     </fieldset>
 
+=======
+    <div data-role="page" id="select_symptom" class="page"><div data-role="header">
+    <a data-iconpos="notext" data-role="button" data-icon="home" title="Home" href="#home">Home</a>
+    <h1>펫케어</h1>
+    <a class="menubar ui-shadow ui-btn ui-corner-all ui-icon-grid ui-btn-icon-notext ui-btn-inline">Button</a>
+</div>
+<div data-role="content" class="ui-content">
+    <div class="main_content">
+        <div class="symptom_list">
+           
+            <div data-role="fieldcontain">
+
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                 <legend>증상을 모두 선택하세요.</legend>
+                 <input type="checkbox" name="checkbox-2" id="checkbox-1" class="custom" />
+                 <label for="checkbox-1">고열</label>
+                 <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+                 <label for="checkbox-2">탈수</label>
+                 <input type="checkbox" name="checkbox-2" id="checkbox-3" class="custom" />
+                 <label for="checkbox-3">체중감소</label>
+                 <input type="checkbox" name="checkbox-2" id="checkbox-4" class="custom" />
+                 <label for="checkbox-4">설사</label>
+                 </fieldset>
+                 </div>
+                  <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                 <input type="checkbox" name="checkbox-2" id="checkbox-5" class="custom" />
+                 <label for="checkbox-5">기침</label>
+                 <input type="checkbox" name="checkbox-2" id="checkbox-6" class="custom" />
+                 <label for="checkbox-6">경련</label>
+                 <input type="checkbox" name="checkbox-2" id="checkbox-7" class="custom" />
+                 <label for="checkbox-7">탈모</label>
+                 <input type="checkbox" name="checkbox-2" id="checkbox-8" class="custom" />
+                 <label for="checkbox-8">구토</label>
+                 <input type="checkbox" name="checkbox-2" id="checkbox-9" class="custom" />
+                 <label for="checkbox-9">식욕감소</label>
+            </fieldset>
+            </div>
+>>>>>>> 7edf177f641339c7579753eb62ca30989d4281df
                     
+            </div>
+            <!--
+             <fieldset data-role="controlgroup" data-type="horizontal">
+                        <input type="radio" name="sym1" id="radio-choice-h-2a" value="on" checked="checked">
+                        <label for="radio-choice-h-2a">고열</label>
+                        <input type="radio" name="sym2" id="radio-choice-h-2b">
+                        <label for="radio-choice-h-2b">탈수</label>
+                        <input type="radio" name="syn3" id="radio-choice-h-2c">
+                        <label for="radio-choice-h-2c">체중감소</label>
+                        <input type="radio" name="syn3" id="radio-choice-h-2c">
+                        <label for="radio-choice-h-2c">설사</label> 
+                        <input type="radio" name="syn4" id="radio-choice-h-2c">
+                        <label for="radio-choice-h-2c">기침</label> 
+                        <input type="radio" name="syn5" id="radio-choice-h-2c">
+                        <label for="radio-choice-h-2c">경련</label> 
+                        <input type="radio" name="syn6" id="radio-choice-h-2c">
+                        <label for="radio-choice-h-2c">탈모</label> 
+                        <input type="radio" name="syn7" id="radio-choice-h-2c">
+                        <label for="radio-choice-h-2c">구토</label> 
+                        <input type="radio" name="syn8" id="radio-choice-h-2c">
+                        <label for="radio-choice-h-2c">식욕감소</label>     
+                    </fieldset>
+-->
+        </div>
+    </div>
+</div>
+</div>
+<<<<<<< HEAD
+    <!--test -->
+    <div data-role="page" id="test">
+        <div data-role="header">
+            <h1>Welcome To My Homepage</h1>
+        </div>
+        <button onclick="test('식욕감소')">식욕감소</button>
+        <div data-role="footer">
+            <h1>Footer Text</h1>
+        </div>
+    </div>
+    <!--      disease detail  4page                        -->
+    <div data-role="page" id="disease">
+        <div data-role="header">
+            <h1>Welcome To My Homepage</h1>
+        </div>
+        <div data-role="content" class="ui-content">
+            <div class="card">
+                <div class="card-header">
+                    질병정의
+                </div>
+                <div class="card-block">
+                    <blockquote class="card-blockquote">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <footer>Someone famous in
+                            <cite title="Source Title">Source Title</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    주요증상
+                </div>
+                <div class="card-block">
+                    <blockquote class="card-blockquote">
+                        <p id="symptom"></p>
+                        <footer>Someone famous in
+                            <cite title="Source Title">Source Title</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    치료
+                </div>
+                <div class="card-block">
+                    <blockquote class="card-blockquote">
+                        <p id="cure"></p>
+                        <footer>Someone famous in
+                            <cite title="Source Title">Source Title
+                            </cite>
+                        </footer>
+                        <button class="btn btn-default" onclick="hospital()">병원</button>
+                    </blockquote>
                 </div>
             </div>
         </div>
+        <div data-role="footer">
+            <h1>Footer Text</h1>
+        </div>
     </div>
-<!--test -->
-<div data-role="page" id="test">
-  <div data-role="header">
-    <h1>Welcome To My Homepage</h1>
-  </div>
-
-  <button onclick="test('식욕감소')">식욕감소</button>
-
-  <div data-role="footer">
-    <h1>Footer Text</h1>
-  </div>
-</div>
-
-
-
-      <!--      disease detail  4page                        -->
-   <div data-role="page" id="disease">
-  <div data-role="header">
-  <h1>Welcome To My Homepage</h1>
-  </div>
-
-  <div data-role="content" class="ui-content">
-
-<div class="card">
-  <div class="card-header">
-    질병정의 
-  </div>
-  <div class="card-block">
-    <blockquote class="card-blockquote">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-    </blockquote>
-  </div>
-</div>
-
-
-<div class="card">
-  <div class="card-header">
-    주요증상 
-  </div>
-  <div class="card-block">
-    <blockquote class="card-blockquote">
-      <p id="symptom"></p>
-      <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-    </blockquote>
-  </div>
-</div>
+    <!-- map page  -->
+    <div data-role="page" id="maps">
+        <div data-role="header">
+            <h1>Map test</h1>
+        </div>
+        <div data-role="content" class="ui-content">
+            <div id="map" style="width:100%; min-height:400px; height:100%; border:1px solid red;"></div>
+            <!--<div data-role="footer">
+                <h1>Insert Footer Text Here</h1>
+            </div>-->
+        </div>
+    </div>
+=======
 
 
 
@@ -395,6 +400,7 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
     
 
 
+>>>>>>> a4d0126d1a850637b1e1a5330d5e6aacb5a51018
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/fastclick/js/fastclick.js"></script>
     <script type="text/javascript" src="lib/handlebars/js/handlebars-v1.3.0.js"></script>
