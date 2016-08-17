@@ -15,30 +15,29 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <title>PetCare</title>
-    <link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
+    <!-- 합쳐지고 최소화된 최신 CSS 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    -->
     <!--<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />-->
     <link rel="stylesheet" href="css/index.css">
     <script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
     <script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
-    <script type="text/javascript" src="lib/jquery.min.js"></script>
     <script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/disease.js"></script>
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!-- 다음지도 api -->
-    <script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=#"></script>
- 
+    <script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=c99aca69000d9f30b595295b61351a79&libraries=services"></script>
+    <!--<script type="text/javascript" src="js/disease.js"></script>-->
 </head>
 
 <body>
     <!--메뉴바 -->
-    <div id="right-panel" style="padding-top:9%;">
+    <div id="right-panel_menu" style="padding-top:9%;">
         <ul>
             <li><a href="#">Default is right arrow</a></li>
             <li><a href="#">data-icon="plus"</a></li>
@@ -59,7 +58,7 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
                     <div><a href="#select_animal" class="circle-text-a">증상으로 질병 찾기 </a></div>
                 </div>
                 <div class="ui-content">
-                    <a href="#maps" class="ui-btn" id="search_map">근처 동물병원 찾기</a>
+                    <a href="#maps" class="ui-btn" id="search_map" onclick="hospital()">근처 동물병원 찾기</a>
                 </div>
                 <div class="ui-content">
                     <a href="#" class="ui-btn">사료 검색</a>
@@ -77,27 +76,27 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
             <div class="main_content" style="text-align:center;">
                 <div class="animal_list">
                     <div class="circle-text">
-                        <div><a href="#select_symptom" class="circle-text-a">강아지 </a></div>
+                        <div><a href="#select_symptom" onclick="selectCategory('강아지');" class="circle-text-a">강아지 </a></div>
                     </div>
                     &nbsp; &nbsp; &nbsp;
                     <div class="circle-text">
-                        <div><a href="#select_symptom" class="circle-text-a">고양이 </a></div>
+                        <div><a href="#select_symptom" onclick="selectCategory('고양이');" class="circle-text-a">고양이 </a></div>
                     </div>
                     <br>
                     <div class="circle-text">
-                        <div> <a href="#select_symptom" class="circle-text-a">가축 </a> </div>
+                        <div> <a href="#select_symptom" onclick="selectCategory('소');" class="circle-text-a">가축(임시 소) </a> </div>
                     </div>
                     &nbsp; &nbsp; &nbsp;
                     <div class="circle-text">
-                        <div> <a href="#select_symptom" class="circle-text-a">조류 </a></div>
+                        <div> <a href="#select_symptom" onclick="selectCategory('닭');" class="circle-text-a">조류(임시 닭) </a></div>
                     </div>
                     <br>
                     <div class="circle-text">
-                        <div> <a href="#select_symptom" class="circle-text-a">어류 </a> </div>
+                        <div> <a href="#select_symptom" onclick="selectCategory();" class="circle-text-a">어류 </a> </div>
                     </div>
                     &nbsp; &nbsp; &nbsp;
                     <div class="circle-text">
-                        <div> <a href="#select_symptom" class="circle-text-a">기타 </a> </div>
+                        <div> <a href="#select_symptom" onclick="selectCategory();" class="circle-text-a">기타 </a> </div>
                     </div>
                 </div>
             </div>
@@ -114,33 +113,35 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
             <div class="main_content">
                 <div class="symptom_list">
                     <div data-role="fieldcontain">
+                        <legend>증상을 모두 선택하세요.</legend>
                         <fieldset data-role="controlgroup" data-type="horizontal">
-                            <legend>증상을 모두 선택하세요.</legend>
-                            <input type="checkbox" name="checkbox-2" id="checkbox-1" class="custom" />
-                            <label for="checkbox-1">고열</label>
-                            <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
-                            <label for="checkbox-2">탈수</label>
-                            <input type="checkbox" name="checkbox-2" id="checkbox-3" class="custom" />
-                            <label for="checkbox-3">체중감소</label>
-                            <input type="checkbox" name="checkbox-2" id="checkbox-4" class="custom" />
-                            <label for="checkbox-4">설사</label>
+                            <input type="checkbox" name="checkbox-2" id="sym-1" class="custom" />
+                            <label id="sym-label-1" for="sym-1">고열</label>
+                            <input type="checkbox" name="checkbox-2" id="sym-2" class="custom" />
+                            <label id="sym-label-2" for="sym-2">탈수</label>
+                            <input type="checkbox" name="checkbox-2" id="sym-3" class="custom" />
+                            <label id="sym-label-3" for="sym-3">체중감소</label>
+                            <input type="checkbox" name="checkbox-2" id="sym-4" class="custom" />
+                            <label id="sym-label-4" for="sym-4">설사</label>
                         </fieldset>
                     </div>
                     <div data-role="fieldcontain">
                         <fieldset data-role="controlgroup" data-type="horizontal">
-                            <input type="checkbox" name="checkbox-2" id="checkbox-5" class="custom" />
-                            <label for="checkbox-5">기침</label>
-                            <input type="checkbox" name="checkbox-2" id="checkbox-6" class="custom" />
-                            <label for="checkbox-6">경련</label>
-                            <input type="checkbox" name="checkbox-2" id="checkbox-7" class="custom" />
-                            <label for="checkbox-7">탈모</label>
-                            <input type="checkbox" name="checkbox-2" id="checkbox-8" class="custom" />
-                            <label for="checkbox-8">구토</label>
-                            <input type="checkbox" name="checkbox-2" id="checkbox-9" class="custom" />
-                            <label for="checkbox-9">식욕감소</label>
+                            <input type="checkbox" name="checkbox-2" id="sym-5" class="custom" />
+                            <label id="sym-label-5" for="sym-5">기침</label>
+                            <input type="checkbox" name="checkbox-2" id="sym-6" class="custom" />
+                            <label id="sym-label-6" for="sym-6">경련</label>
+                            <input type="checkbox" name="checkbox-2" id="sym-7" class="custom" />
+                            <label id="sym-label-7" for="sym-7">탈모</label>
+                            <input type="checkbox" name="checkbox-2" id="sym-8" class="custom" />
+                            <label id="sym-label-8" for="sym-8">구토</label>
+                            <input type="checkbox" name="checkbox-2" id="sym-9" class="custom" />
+                            <label id="sym-label-9" for="sym-9">식욕감소(식욕부진도 같이 검색해야할듯 --> 두개 같이 검색하는건 복잡할거 같고 데이터 확인 결과 그냥 식욕으로 검색하면 될것같음)</label>
+                            <input type="checkbox" name="checkbox-2" id="sym-10" class="custom" />
+                            <label id="sym-label-10" for="sym-10">호흡곤란,마비,궤양,괴사,출혈</label>
                         </fieldset>
                     </div>
-                    
+                    <a id="search_button" data-role="button" data-icon="search">질병 검색</a>
                 </div>
             </div>
         </div>
@@ -210,26 +211,50 @@ https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
     <!-- map page  -->
     <div data-role="page" id="maps">
         <div data-role="header">
+            <a data-iconpos="notext" data-role="button" data-icon="home" title="Home" href="#home">Home</a>
             <h1>Map test</h1>
         </div>
         <div data-role="content" class="ui-content">
-            <div id="map" style="width:100%; min-height:400px; height:100%; border:1px solid red;"></div>
-            <!--<div data-role="footer">
+            <div class="map_wrap">
+                <!-- 지도를 표시할 div 입니다 -->
+                <div id="map" style="width:100%;min-height:500px;border:1px solid red;"></div>
+                <div id="menu_wrap" class="bg_white" style="border:1px solid black;">
+                    <div class="option">
+                        <div>
+                        </div>
+                    </div>
+                    <hr>
+                    <ul id="placesList"></ul>
+                    <div id="pagination"></div>
+                </div>
+            </div>
+        </div>
+        <!--<div data-role="footer">
                 <h1>Insert Footer Text Here</h1>
             </div>-->
-        </div>
     </div>
-   
-
-    
-
     <!-- test page  -->
+    <div data-role="page" id="diseaseListPage">
+        <div data-role="header">
+            <a data-iconpos="notext" data-role="button" data-icon="home" title="Home" href="#home">Home</a>
+            <h1>list test</h1>
+        </div>
+        <div data-role="content" class="ui-content">
+            <div id="diseaseList_content">
+            </div>
+        </div>
+        <!--<div data-role="footer">
+                <h1>Insert Footer Text Here</h1>
+            </div>-->
+    </div>
+    <!--
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/fastclick/js/fastclick.js"></script>
     <script type="text/javascript" src="lib/handlebars/js/handlebars-v1.3.0.js"></script>
     <script type="text/javascript">
     appomat.app.initialize();
     </script>
+-->
 </body>
 
 </html>
