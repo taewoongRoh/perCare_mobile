@@ -16,7 +16,22 @@ $(document).on("pageshow", "#select_animal", function(event) {
 });
 
 $(document).on("pageshow", "#select_symptom", function(event) {
+    var table= '';
+    table += "<table>";
+    table += "<tr>";
+    table += "<td>질병명</td>";
+    table += "<td>일치 횟수</td>";
+    table += "</tr>";
 
+    $.each(diseaseList, function(key, value) {
+        table += "<tr>";
+        table += "<td>" + value.d_name + "</td>";
+        table += "<td>" + value.count + "</td>";
+        table += "</tr>";
+    })
+
+    table += "</table>";
+    $("#diseaseList_content").html(table);
 
 
 
